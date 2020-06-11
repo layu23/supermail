@@ -25,7 +25,6 @@ export default {
         return {
             detailTab:[
                 '详情',
-                '参数',
                 '评价',
                 '推荐',
             ],

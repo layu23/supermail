@@ -55,25 +55,51 @@
             <p v-text="movies.summary" class="infoText introduce"></p>
         </div>
         <div class="summary text_padding">
-            <h2 class="info_title ">演职员:</h2>    
+            <h2 class="info_title ">主要演职员:</h2>    
         </div>
         <ul class="movie_celebrities">
             <li v-for="(item,i) in casts" :key="i" class="item_celebrity">
                 <a :href="item.alt">
-                    <img :src="item.avatars.small" alt="">
+                    <img :src="item.avatars.small" alt="" class="img-rounded">
                 </a>
+                <div>{{item.name}}</div>
             </li>
         </ul>
         <hr>
-        <div class="comments">
+        <div class="comments text_padding">
             <h2 class="info_title ">短评:</h2>
             <div v-for="(item,i) in movies.popular_comments" :key="i" class="comments_item">
                 <div class="author">
-                    <a href="">
-                        <img :src="item.author.avatar" alt="">
+                    <a :href="item.author.alt">
+                        <img :src="item.author.avatar" alt="" class="img-circle">
                     </a>
+                    <div>{{item.author.name}}</div>
+                    <div class="author_star"><span class=" glyphicon glyphicon-star" v-for="(count,i) in item.rating.value" :key="i"></span></div>
                 </div>
-                <div class="comments_item_info"></div>
+                <div class="comments_item_info">
+                    <div>{{item.content}}</div>
+                    <div><span class="glyphicon glyphicon-thumbs-up zan"></span>&nbsp;{{item.useful_count}}</div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <h2>推荐</h2>
+        <div class="comments text_padding">
+            <h2 class="info_title ">影评:</h2>
+            <div v-for="(item,i) in movies.popular_reviews" :key="i" class="comments_item">
+                <div class="author">
+                    <a :href="item.author.alt">
+                        <img :src="item.author.avatar" alt="" class="img-circle">
+                    </a>
+                    <div>{{item.author.name}}</div>
+                    <div class="author_star"><span class=" glyphicon glyphicon-star" v-for="(count,i) in item.rating.value" :key="i"></span></div>
+                </div>
+                <div class="">
+                    <b style="font-size:16px">{{item.title}}</b>
+                    <div>{{item.summary}}</div>
+                    <div></div>
+                </div>
+                <hr>
             </div>
         </div>
     </div>
@@ -113,6 +139,7 @@ export default {
 </script>
 
 <style scoped>
+    
     .text_padding{
         padding: 5px;
         
@@ -154,21 +181,42 @@ export default {
     .movie_celebrities{
         width: 100vw;
         display: flex;
-        overflow-x: auto;
         list-style: none;
         height: 150px;
+        
     }
     .item_celebrity{
-        height: 150px;
-        margin-left: 10px;
+        flex: 1;
         overflow: hidden;
+        
     }
     .item_celebrity>a>img{
         width: 100%;
     }
+    .item_celebrity>div{
+        text-align: center;
+    }
     .comments_item{
-        display: flex;
+        
         width: 100vw;
+    }
+    .author{
+        display: flex;
+        
+    }
+    .author>div{
+        line-height: 50px;
+        margin-left: 10px;
+    }
+    .author_star>span{
+        top: 2px;
+        color: #f9bd10;
+    }
+    .comments_item_info{
+        margin-left: 40px;
+    }
+    .zan{
+        top: 2px;
     }
     
 </style>

@@ -14,6 +14,8 @@ export class movies{
         this.genres = itemInfo.genres
         // 热评
         this.popular_comments = itemInfo.popular_comments
+        // 影评
+        this.popular_reviews = itemInfo.popular_reviews
         // 评分
         this.rating = itemInfo.rating
         // 导演

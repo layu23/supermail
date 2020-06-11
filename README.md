@@ -1,19 +1,11 @@
-# supermail
 
-## Project setup
-```
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+npm run serve(运行)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+npm run build(打包)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+访问：http://localhost:8080
+
+由于接口问题,仅仅首页展示完成 调用豆瓣API
+电影可点击进入详情页
